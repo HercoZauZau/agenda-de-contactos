@@ -1,0 +1,12 @@
+<script>
+  const button = document.querySelectorAll(".b-switch");
+  const form = document.querySelectorAll(".f-switch");
+
+  button.forEach((e) => {
+    e.addEventListener("click", () => {
+      form.forEach((e) => {
+        e.classList.toggle("hide");
+      });
+    });
+  });
+</script>

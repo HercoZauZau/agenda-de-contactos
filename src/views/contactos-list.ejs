@@ -1,0 +1,85 @@
+<%- include('includes/head') %>
+  <%- include('includes/navbar.ejs') %>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-12 my-3">
+          <div class="border rounded px-4 py-2 shadow p-3 mb-5 bg-white">
+            <h2>
+              <%= user.name + " " + user.lastname %>
+            </h2>
+            <h5>
+              <%= user.email %>
+            </h5>
+            <h5 class="mt-4 text-info">
+              <%= contactos.length %> Contactos
+            </h5>
+          </div>
+
+          <%- include('includes/messages') %>
+            <% if (contactos.length> 0) { %>
+
+              <div class="responsive-table">
+                <table class="table table-borderless my-2 text-left">
+                  <thead>
+                    <tr>
+                      <th></th>
+                      <th>Nome</th>
+                      <th>Telefone</th>
+                      <th>E-mail</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tr>
+                    <td></td>
+                  </tr>
+                  <tbody class="list-tab p-3">
+                    <% contactos.forEach(contacto=> { %>
+                      <tr>
+                        <td>
+                          <img class="list-icon"
+                            src="https://github.com/HercoZauZau/agenda-de-contactos/blob/main/images/letter%20icons/<%=contacto.name.charAt(0) %>.png?raw=true"
+                            alt="icon">
+                        </td>
+                        <td>
+                          <%= contacto.name + " " +contacto.lastname %>
+                        </td>
+                        <td>
+                          <%= contacto.number %>
+                        </td>
+                        <td>
+                          <%= contacto.email %>
+                        </td>
+                        <td>
+                          <a class="text-secondary" href="/contacto/<%= contacto._id %>">
+                            <span class="material-icons"> mode_edit </span>
+                          </a>
+                        </td>
+                        <td>
+                          <a class="text-secondary" href="/contacto/delete/<%= contacto._id %>">
+                            <span class="material-icons"> delete </span>
+                          </a>
+                        </td>
+                      </tr>
+                      <% }); %>
+                  </tbody>
+                </table>
+              </div>
+
+              <% } else {%>
+
+                <p class="text-center lead">Nao existem contactos na sua agenda</p>
+
+                <p class="text-center lead">
+                  <a class="" href="/contacto">Cadastre o seu primeiro </a>
+                </p>
+
+                <% } %>
+        </div>
+        <div class="col-lg-2"></div>
+      </div>
+    </div>
+
+    <%- include('includes/footer') %>

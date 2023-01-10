@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito&display=swap");
+
+html,
+body {
+  height: 100%;
+  font-family: "Nunito", sans-serif;
+}
+
+p {
+  width: fit-content;
+}
+
+.list-icon {
+  position: relative;
+  width: 35px;
+  margin-bottom: 10px;
+}
+
+.list-tab td {
+  padding: 0;
+  max-width: 250px;
+}
+
+.hide {
+  display: none;
+}
+
+.b-switch {
+  cursor: pointer;
+}
